@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #222242;
+    width: 80%;
+    max-width: 600px; /* Adjust the maximum width as needed */
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    color: #F6B400;
+    margin-bottom: 20px;
+}
+
+.timer-Display {
+    width: 100%;
+    background: #2c3e50;
+    padding: 20px 0;
+    color: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 50% 50% 0 0; /* Make it round */
+    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.5) inset;
+    position: relative;
+    overflow: hidden;
+}
+
+.timer-Display::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #151538;
+    z-index: -1;
+    border-radius: 50%;
+    animation: shine 3s infinite;
+}
+
+.timer-Display div {
+    margin: 0 5px;
+}
+
+@keyframes shine {
+    0%, 100% {
+        box-shadow: 0px 0px 32px -12px rgba(246, 180, 0, .5);
+    }
+    50% {
+        box-shadow: 0px 0px 32px 3px rgba(246, 180, 0, .5);
+    }
+}
+
+.laps {
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.laps li {
+    margin-bottom: 5px;
+}
+
+.buttons {
+    width: 100%;
+    margin: 20px auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    justify-content: center;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    background-color: #F6B400;
+    color: #ffffff;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: 0;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4), 0px 7px 13px -3px rgba(0, 0, 0, 0.3), 0px -3px 0px inset rgba(0, 0, 0, 0.2);
+}
+
+.buttons button:hover {
+    background-color: #222242;
+    color: #F6B400;
+    box-shadow: 0px 4px 27px -12px #F6B400;
+    transform: scale(1.05);
+}
+
+/* Lap and Reset Laps button styles */
+.buttons #lap,
+.buttons #resetLap {
+    grid-column: span 3; /* Spanning three columns */
+    margin-top: 15px; /* Adding some space between the two sets of buttons */
+}
